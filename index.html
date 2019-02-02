@@ -69,7 +69,7 @@
             <h2>検出する文字列</h2>
             <h3>formの送信内容に以下の文字列が含まれている場合、ポップアップを表示します。</h3>
             <ul>
-                <li>aemtest</li>
+                <li>test</li>
                 <li>admin</li>
                 <li>token=</li>
                 <li>timer=</li>
@@ -92,8 +92,8 @@
             <h2>input[type="text"]</h2>
             <form action="" name="form-text">
                 <input type="text" name="text" value="https://www.axelentermedia.co.jp/"><br>
-                <input type="text" name="text" value="http://corp.aemtest.com/"><br>
-                <input type="text" name="text" value="http://corp.aemtest.com/?token=aaa&timer=1234"><br>
+                <input type="text" name="text" value="http://corp.test.com/"><br>
+                <input type="text" name="text" value="http://corp.test.com/?token=aaa&timer=1234"><br>
                 <input type="text" name="text" value="http://sample.com/?token=aaa&timer=1234"><br>
                 <input type="submit" value="送信">
                 <input type="reset" value="reset">
@@ -105,8 +105,8 @@
             <h2>input[type="radio"]</h2>
             <form action="">
                 <label><input type="radio" name="radio" value="https://www.axelentermedia.co.jp/" checked>https://www.axelentermedia.co.jp/</label><br>
-                <label><input type="radio" name="radio" value="http://corp.aemtest.com/">http://corp.aemtest.com/</label><br>
-                <label><input type="radio" name="radio" value="http://corp.aemtest.com/?token=aaa&timer=1234">http://corp.aemtest.com/?token=aaa&timer=1234</label><br>
+                <label><input type="radio" name="radio" value="http://corp.test.com/">http://corp.test.com/</label><br>
+                <label><input type="radio" name="radio" value="http://corp.test.com/?token=aaa&timer=1234">http://corp.test.com/?token=aaa&timer=1234</label><br>
                 <label><input type="radio" name="radio" value="http://sample.com/?token=aaa&timer=1234">http://sample.com/?token=aaa&timer=1234</label><br>
                 <input type="submit" value="送信">
                 <input type="reset" value="reset">
@@ -117,8 +117,8 @@
             <h2>input[type="checkbox"]</h2>
             <form action="">
                 <label><input type="checkbox" name="checkbox" value="https://www.axelentermedia.co.jp/" checked>https://www.axelentermedia.co.jp/</label><br>
-                <label><input type="checkbox" name="checkbox" value="http://corp.aemtest.com/">http://corp.aemtest.com/</label><br>
-                <label><input type="checkbox" name="checkbox" value="http://corp.aemtest.com/?token=aaa&timer=1234">http://corp.aemtest.com/?token=aaa&timer=1234</label><br>
+                <label><input type="checkbox" name="checkbox" value="http://corp.test.com/">http://corp.test.com/</label><br>
+                <label><input type="checkbox" name="checkbox" value="http://corp.test.com/?token=aaa&timer=1234">http://corp.test.com/?token=aaa&timer=1234</label><br>
                 <label><input type="checkbox" name="checkbox" value="http://sample.com/?token=aaa&timer=1234">http://sample.com/?token=aaa&timer=1234</label><br>
                 <input type="submit" value="送信">
                 <input type="reset" value="reset">
@@ -128,7 +128,7 @@
         <section class="box">
             <h2>textarea</h2>
             <form action="">
-                <textarea rows="5" name="textarea">http://corp.aemtest.com/</textarea><br>
+                <textarea rows="5" name="textarea">http://corp.test.com/</textarea><br>
                 <input type="submit" value="送信">
                 <input type="reset" value="reset">
                 <input type="button" value="clear" onclick="document.querySelectorAll('textarea').forEach(function(input) { input.value = ''; });">
@@ -140,8 +140,8 @@
             <form action="">
                 <select name="select">
                     <option value="https://www.axelentermedia.co.jp/">https://www.axelentermedia.co.jp/</option>
-                    <option value="http://corp.aemtest.com/">http://corp.aemtest.com/</option>
-                    <option value="http://corp.aemtest.com/?token=aaa&timer=1234">http://corp.aemtest.com/?token=aaa&timer=1234</option>
+                    <option value="http://corp.test.com/">http://corp.test.com/</option>
+                    <option value="http://corp.test.com/?token=aaa&timer=1234">http://corp.test.com/?token=aaa&timer=1234</option>
                     <option value="http://sample.com/?token=aaa&timer=1234">http://sample.com/?token=aaa&timer=1234</option>
                 </select>
                 <br>
@@ -156,16 +156,16 @@
                 <input type="text" name="text" value=""><br>
                 <br>
                 <label><input type="radio" name="radio" value="https://www.axelentermedia.co.jp/" checked>https://www.axelentermedia.co.jp/</label><br>
-                <label><input type="radio" name="radio" value="http://corp.aemtest.com/">http://corp.aemtest.com/</label><br>
+                <label><input type="radio" name="radio" value="http://corp.test.com/">http://corp.test.com/</label><br>
                 <br>
                 <label><input type="checkbox" name="checkbox" value="https://www.axelentermedia.co.jp/" checked>https://www.axelentermedia.co.jp/</label><br>
-                <label><input type="checkbox" name="checkbox" value="http://corp.aemtest.com/">http://corp.aemtest.com/</label><br>
+                <label><input type="checkbox" name="checkbox" value="http://corp.test.com/">http://corp.test.com/</label><br>
                 <br>
                 <textarea rows="5" name="textarea"></textarea><br>
                 <br>
                 <select name="select">
                     <option value="https://www.axelentermedia.co.jp/">https://www.axelentermedia.co.jp/</option>
-                    <option value="http://corp.aemtest.com/">http://corp.aemtest.com/</option>
+                    <option value="http://corp.test.com/">http://corp.test.com/</option>
                 </select>
                 <br>
                 <br>
@@ -187,16 +187,16 @@
                 <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/">
                 <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/">
                 <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/">
-                <input class="min" type="text" name="text" value="https://corp.aemtest.com/">
-                <input class="min" type="text" name="text" value="https://corp.aemtest.com/">
-                <input class="min" type="text" name="text" value="https://corp.aemtest.com/">
-                <input class="min" type="text" name="text" value="https://corp.aemtest.com/">
-                <input class="min" type="text" name="text" value="https://corp.aemtest.com/">
-                <input class="min" type="text" name="text" value="https://corp.aemtest.com/">
-                <input class="min" type="text" name="text" value="https://corp.aemtest.com/">
-                <input class="min" type="text" name="text" value="https://corp.aemtest.com/">
-                <input class="min" type="text" name="text" value="https://corp.aemtest.com/">
-                <input class="min" type="text" name="text" value="https://corp.aemtest.com/">
+                <input class="min" type="text" name="text" value="https://corp.test.com/">
+                <input class="min" type="text" name="text" value="https://corp.test.com/">
+                <input class="min" type="text" name="text" value="https://corp.test.com/">
+                <input class="min" type="text" name="text" value="https://corp.test.com/">
+                <input class="min" type="text" name="text" value="https://corp.test.com/">
+                <input class="min" type="text" name="text" value="https://corp.test.com/">
+                <input class="min" type="text" name="text" value="https://corp.test.com/">
+                <input class="min" type="text" name="text" value="https://corp.test.com/">
+                <input class="min" type="text" name="text" value="https://corp.test.com/">
+                <input class="min" type="text" name="text" value="https://corp.test.com/">
                 <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/?token=test">
                 <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/?token=test">
                 <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/?token=test">
@@ -249,11 +249,6 @@
           // afv.showWord() //-> 'test', 'sample', 'example'
           // afv.test('test') //-> true
           // afv.init(['test', 'sample', 'example']) //-> 全て置き換え
-
-          console.log(afv.test('aemtest'))
-          console.log(afv.test('admin'))
-          console.log(afv.test('aaaaa'))
-
           afv.init()
       </script>
 
