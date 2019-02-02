@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>form varidate</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            h1, h2, h3, h4, h5, h6 {
+                margin: 0 0 10px;
+            }
+            .box {
+                padding: 10px;
+                margin: 10px;
+                border: 1px solid gray;
+            }
+            .box--red {
+                padding: 10px;
+                margin: 10px;
+                border: 3px solid #cc0000;
+                color: #cc0000;
+            }
+            form {
+                position: relative;
+                padding: 25px;
+                background: #efefef;
+            }
+            form::before {
+                content: "<form>";
+                top: 4px;
+            }
+            form::after {
+                content: "</form>";
+                bottom: 4px;
+            }
+            form::before,
+            form::after {
+                position: absolute;
+                left: 10px;
+                color: gray;
+                display: block;
+                font-size: 12px;
+            }
+            input[type="text"],
+            textarea {
+                width: 100%;
+            }
+            input[type="text"].min {
+                width: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>formの中に登録したくない値があればアラートを表示するやつ</h1>
+
+
+        <!-- 禁止文字一覧 -->
+        <section class="box--red">
+            <h2>概要</h2>
+            <p>
+                &lt;form&gt;の送信内容に送信させたくない文字列がある場合、確認のポップアップを表示したい。<br>
+            </p>
+        </section>
+
+        <section class="box--red">
+            <h2>検出する文字列</h2>
+            <h3>formの送信内容に以下の文字列が含まれている場合、ポップアップを表示します。</h3>
+            <ul>
+                <li>aemtest</li>
+                <li>admin</li>
+                <li>token=</li>
+                <li>timer=</li>
+            </ul>
+        </section>
+
+        <section class="box--red">
+            <h2>検証環境（以下の環境で検証済み）</h2>
+            <h3>mac</h3>
+            <ul>
+                <li>Safari</li>
+                <li>Chrome</li>
+                <li>Firefox</li>
+            </ul>
+        </section>
+
+
+        <!-- フォームの送信テスト -->
+        <section class="box">
+            <h2>input[type="text"]</h2>
+            <form action="" name="form-text">
+                <input type="text" name="text" value="https://www.axelentermedia.co.jp/"><br>
+                <input type="text" name="text" value="http://corp.aemtest.com/"><br>
+                <input type="text" name="text" value="http://corp.aemtest.com/?token=aaa&timer=1234"><br>
+                <input type="text" name="text" value="http://sample.com/?token=aaa&timer=1234"><br>
+                <input type="submit" value="送信">
+                <input type="reset" value="reset">
+                <input type="button" value="clear" onclick="document.querySelector('form[name=\'form-text\']').querySelectorAll('input[type=\'text\']').forEach(function(input) { input.value = ''; });">
+            </form>
+        </section>
+
+        <section class="box">
+            <h2>input[type="radio"]</h2>
+            <form action="">
+                <label><input type="radio" name="radio" value="https://www.axelentermedia.co.jp/" checked>https://www.axelentermedia.co.jp/</label><br>
+                <label><input type="radio" name="radio" value="http://corp.aemtest.com/">http://corp.aemtest.com/</label><br>
+                <label><input type="radio" name="radio" value="http://corp.aemtest.com/?token=aaa&timer=1234">http://corp.aemtest.com/?token=aaa&timer=1234</label><br>
+                <label><input type="radio" name="radio" value="http://sample.com/?token=aaa&timer=1234">http://sample.com/?token=aaa&timer=1234</label><br>
+                <input type="submit" value="送信">
+                <input type="reset" value="reset">
+            </form>
+        </section>
+
+        <section class="box">
+            <h2>input[type="checkbox"]</h2>
+            <form action="">
+                <label><input type="checkbox" name="checkbox" value="https://www.axelentermedia.co.jp/" checked>https://www.axelentermedia.co.jp/</label><br>
+                <label><input type="checkbox" name="checkbox" value="http://corp.aemtest.com/">http://corp.aemtest.com/</label><br>
+                <label><input type="checkbox" name="checkbox" value="http://corp.aemtest.com/?token=aaa&timer=1234">http://corp.aemtest.com/?token=aaa&timer=1234</label><br>
+                <label><input type="checkbox" name="checkbox" value="http://sample.com/?token=aaa&timer=1234">http://sample.com/?token=aaa&timer=1234</label><br>
+                <input type="submit" value="送信">
+                <input type="reset" value="reset">
+            </form>
+        </section>
+
+        <section class="box">
+            <h2>textarea</h2>
+            <form action="">
+                <textarea rows="5" name="textarea">http://corp.aemtest.com/</textarea><br>
+                <input type="submit" value="送信">
+                <input type="reset" value="reset">
+                <input type="button" value="clear" onclick="document.querySelectorAll('textarea').forEach(function(input) { input.value = ''; });">
+            </form>
+        </section>
+
+        <section class="box">
+            <h2>select</h2>
+            <form action="">
+                <select name="select">
+                    <option value="https://www.axelentermedia.co.jp/">https://www.axelentermedia.co.jp/</option>
+                    <option value="http://corp.aemtest.com/">http://corp.aemtest.com/</option>
+                    <option value="http://corp.aemtest.com/?token=aaa&timer=1234">http://corp.aemtest.com/?token=aaa&timer=1234</option>
+                    <option value="http://sample.com/?token=aaa&timer=1234">http://sample.com/?token=aaa&timer=1234</option>
+                </select>
+                <br>
+                <input type="submit" value="送信">
+                <input type="reset" value="reset">
+            </form>
+        </section>
+
+        <section class="box">
+            <h2>色々ごちゃまぜ</h2>
+            <form action="">
+                <input type="text" name="text" value=""><br>
+                <br>
+                <label><input type="radio" name="radio" value="https://www.axelentermedia.co.jp/" checked>https://www.axelentermedia.co.jp/</label><br>
+                <label><input type="radio" name="radio" value="http://corp.aemtest.com/">http://corp.aemtest.com/</label><br>
+                <br>
+                <label><input type="checkbox" name="checkbox" value="https://www.axelentermedia.co.jp/" checked>https://www.axelentermedia.co.jp/</label><br>
+                <label><input type="checkbox" name="checkbox" value="http://corp.aemtest.com/">http://corp.aemtest.com/</label><br>
+                <br>
+                <textarea rows="5" name="textarea"></textarea><br>
+                <br>
+                <select name="select">
+                    <option value="https://www.axelentermedia.co.jp/">https://www.axelentermedia.co.jp/</option>
+                    <option value="http://corp.aemtest.com/">http://corp.aemtest.com/</option>
+                </select>
+                <br>
+                <br>
+                <input type="submit" value="送信">
+                <input type="reset" value="reset">
+            </form>
+        </section>
+
+        <section class="box">
+            <h2>inputが20個（速度、負荷の確認）</h2>
+            <form action="" name="form-text2">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/">
+                <input class="min" type="text" name="text" value="https://corp.aemtest.com/">
+                <input class="min" type="text" name="text" value="https://corp.aemtest.com/">
+                <input class="min" type="text" name="text" value="https://corp.aemtest.com/">
+                <input class="min" type="text" name="text" value="https://corp.aemtest.com/">
+                <input class="min" type="text" name="text" value="https://corp.aemtest.com/">
+                <input class="min" type="text" name="text" value="https://corp.aemtest.com/">
+                <input class="min" type="text" name="text" value="https://corp.aemtest.com/">
+                <input class="min" type="text" name="text" value="https://corp.aemtest.com/">
+                <input class="min" type="text" name="text" value="https://corp.aemtest.com/">
+                <input class="min" type="text" name="text" value="https://corp.aemtest.com/">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/?token=test">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/?token=test">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/?token=test">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/?token=test">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/?token=test">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/?token=test">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/?token=test">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/?token=test">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/?token=test">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/?token=test">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/?timer=test">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/?timer=test">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/?timer=test">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/?timer=test">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/?timer=test">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/?timer=test">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/?timer=test">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/?timer=test">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/?timer=test">
+                <input class="min" type="text" name="text" value="https://www.axelentermedia.co.jp/?timer=test">
+                <br>
+                <input type="submit" value="送信">
+                <input type="reset" value="reset">
+                <input type="button" value="clear" onclick="document.querySelector('form[name=\'form-text2\']').querySelectorAll('input[type=\'text\']').forEach(function(input) { input.value = ''; });">
+            </form>
+        </section>
+
+        <!-- submit時のイベントが消えてないか確かめたいので、formにイベントをつける -->
+        <script>
+          window.addEventListener('DOMContentLoaded', function() {
+              document.querySelectorAll('form').forEach(function(form) {
+                  form.onsubmit = function() {
+                      alert(
+                          'formがsumbitされました\n\n' 
+                          + 'このアラートはvalidate処理とは関係なく、formのsubmitイベントに追加している処理です。\n' 
+                          + 'validate後にsubmitされる場合にも元から設定されているsubmitイベントが動作するか確認するために仕込んでいます。'
+                      );
+                  }
+              });
+          });
+      </script>
+      
+
+      <!-- チェック用 -->
+      <script src="./lib/form_validate.js"></script>
+      <script>
+          var afv = new AemFormValidate()
+          // afv.addWord(['test', 'sample', 'example'])
+          // afv.replaceWord(['test', 'sample', 'example'])
+          // afv.showWord() //-> 'test', 'sample', 'example'
+          // afv.test('test') //-> true
+          // afv.init(['test', 'sample', 'example']) //-> 全て置き換え
+
+          console.log(afv.test('aemtest'))
+          console.log(afv.test('admin'))
+          console.log(afv.test('aaaaa'))
+
+          afv.init()
+      </script>
+
+
+  </body>
+</html>
