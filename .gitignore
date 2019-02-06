@@ -1,5 +1,20 @@
-*~
+# Node
+node_modules
+
+# Rollup
+.rpt2_cache
+
+# OS X
 .DS_Store
-node_modules/
-bower_components/
-/css/sass/.sass-cache
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/

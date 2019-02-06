@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    // TSはECMAScript 5に変換
+    "target": "ES5",
+    // TSのモジュールはES Modulesとして出力
+    "module": "ES6",
+    // node_modules からライブラリを読み込む
+    "moduleResolution": "node",
+    // コメント削除
+    // "removeComments": true,
+    "lib": [
+      "es2017", // 将来追加されるの機能を全て使う
+      "dom" // ブラウザのDOMAPIを使う
+    ],
+    // ソースマップを表示する
+    "sourceMap": true,
+    // 型定義フィアルの読み込み先
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/sweetalert2/sweetalert2.d.ts"
+    ]
+  }
+}
